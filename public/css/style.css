@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  color: red;
+}
+
+header {
+  width: 100vw;
+  padding: 20px 0;
+  background-color: gray;
+}
+
+header ul {
+  list-style-type: none;
+}
+
+header ul li {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+header ul li a:hover {
+  background-color: teal;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100vw;
+  background-color: gray;
+  color: white;
+  padding: 20px 0;
+}
+
+#message-error {
+  color: red;
+}
