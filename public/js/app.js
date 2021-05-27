@@ -1,18 +1,17 @@
 const weatherForm = document.querySelector("form");
 const search = document.querySelector('input')
-const message1 = document.querySelector('#message-1')
-const message2 = document.querySelector('#message-2')
 const messageError = document.querySelector('#message-error')
+
+const weatherDivs = document.querySelectorAll('span.weather-item')
+const locationDiv = document.querySelector('#location')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    const location = search.value
-
-    messageError.innerHTML = ''
-    message1.innerHTML = ''
-    message2.innerHTML = ''
+    weatherDivs.forEach(div => div.innerHTML = '')
     
+    const location = search.value
+    // /weather?address= + location
     fetch("/weather?address=" + location)
     .then(response => response.json())
     .then(data => {
@@ -21,10 +20,28 @@ weatherForm.addEventListener('submit', (e) => {
             // console.log(data.error)
         }
         else {
-            message1.innerHTML = data.location
-            message2.innerHTML = data.forecast
-            // console.log(data.location)
-            // console.log(data.forecast)
+
+            messageError.innerHTML = ''
+        
+            weatherDivs.forEach((div) => {
+
+                const key = div.dataset.id;
+                
+                locationDiv.innerHTML = data.location
+
+                if(key === "weather_descriptions") {
+                    div.innerHTML = data.forecast[key][0];
+                }
+                else if (key === "weather_icons") {
+                    const img = document.createElement("img");
+                    img.src = data.forecast[key][0];
+                    img.alt = "Weather Icon";
+                    div.appendChild(img);
+                }
+                else {
+                    div.innerHTML = data.forecast[key];
+                }
+            })
         }
     })
 })

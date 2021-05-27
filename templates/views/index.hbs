@@ -13,18 +13,36 @@
     <div id="wrapper">
       {{>header}}
       <div id="main-content">
-      <p>Get Weather</p>
+        <p>Get Weather</p>
 
-      <form id="weather-form">
-        <input type="text" placeholder="Location">
-        <button type="submit">Search</button>
-      </form>
-
-      <div>
+        <form id="weather-form">
+          <input type="text" placeholder="Location">
+          <button type="submit">Search</button>
+        </form>
         <p id="message-error"></p>
-        <p id="message-1"></p>
-        <p id="message-2"></p>
-      </div>
+        <div id="weather-table">
+          {{!-- <p id="message-1"></p>
+          <p id="message-2"></p> --}}
+          <div id="head-section">
+            <div><span id="weather-description" data-id="weather_descriptions" class="weather-item"></span></div>
+            <div><span id="time" data-id="observation_time" class="weather-item"></span></div>
+            <div><span id="location" data-id="location" class="location-item"></span></div>
+            <div><span id="weather-icon" data-id="weather_icons" class="weather-item"></span></div>
+          </div>
+          <div id="content-section">
+            <div><span>Temperature: </span><span id="temperature" data-id="temperature" class="weather-item"></span></div>
+            <div><span>Feels Like: </span><span id="feels-like" data-id="feelslike" class="weather-item"></span></div>
+            <div><span>Wind Speed: </span><span id="wind-speed" data-id="wind_speed" class="weather-item"></span></div>
+            <div><span>Wind Direction: </span><span id="wind-direction" data-id="wind_dir" class="weather-item"></span></div>
+            <div><span>Wind Degree: </span><span id="wind-degree" data-id="wind_degree" class="weather-item"></span></div>
+            <div><span>Pressure: </span><span id="pressure" data-id="pressure" class="weather-item"></span></div>
+            <div><span>Precipitation %: </span><span id="precip" data-id="precip" class="weather-item"></span></div>
+            <div><span>Humidity: </span><span id="humidity" data-id="humidity" class="weather-item"></span></div>
+            <div><span>Cloud Cover: </span><span id="cloud-cover" data-id="cloudcover" class="weather-item"></span></div>
+            <div><span>UV Index: </span><span id="uv-index" data-id="uv_index" class="weather-item"></span></div>
+            <div><span>Visibility: </span><span id="visibility" data-id="visibility" class="weather-item"></span></div>
+          </div>
+        </div>
       </div>
 
       {{>footer}}
